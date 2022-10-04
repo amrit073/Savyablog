@@ -1,17 +1,18 @@
 const router = require("./routes/simple.routes.js");
-const session = require("express-session");
+const homerouter = require("./routes/home.routes");
+const cookieSession = require("cookie-session");
 const passport = require("./utils/auth");
 const PORT = process.env.PORT || 3000;
 const mongoose = require("mongoose");
 const config = require("./configs");
 const express = require("express");
 const app = express();
-
+app.use(express.urlencoded({ extended: false }));
 app.use(
-  session({
-    secret: config.cookey1,
-    resave: false,
-    saveUninitialized: true,
+  cookieSession({
+    name: "session",
+    maxAge: 60 * 60 * 24 * 1000 * 30,
+    keys: [config.cookey1, config.cookey2],
   })
 );
 
@@ -49,8 +50,8 @@ app.post("/logout", (req, res) => {
   res.redirect("/login");
 });
 
-app.use("/", router);
-
+app.use("/api/v1", router);
+app.use("/", homerouter);
 app.get("/dashboard", (req, res) => {
   res.send(`this is protected, you have accesss ${req.user} `);
 });

@@ -1,0 +1,113 @@
+
+<link href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
+
+<div class="container">
+	<div class="row">
+      <div class="col-md-6 col-md-offset-3">
+        <div class="well well-sm">
+          
+          
+
+
+
+
+
+
+
+
+
+
+          <form class="form-horizontal" method="post" action = "/api/v1/">
+            <fieldset>
+              <legend class="text-center">Create Post</legend>
+      
+      
+              <!-- Email input-->
+              <div class="form-group">
+                <label class="col-md-3 control-label" for="title">Post title</label>
+                <div class="col-md-9">
+                  <input required id="Title" name="Title" type="text" placeholder="Post title" class="form-control">
+                </div>
+              </div>
+      
+              <!-- Message body -->
+              <div class="form-group">
+                <label class="col-md-3 control-label" for="Post">Your thoughts</label>
+                <div class="col-md-9">
+                  <textarea required class="form-control" id="Body" name="Body" placeholder="Please enter your thoughts here..." rows="5"></textarea>
+                </div>
+              </div>
+      
+              <!-- Form actions -->
+              <div class="form-group">
+                <div class="col-md-12 text-right">
+                  <input type="submit" class="btn btn-primary btn-lg" value="POST" formmethod="POST" ></button>
+                </div>
+              </div>
+            </fieldset>
+            </form>
+
+
+
+
+            <form class="form-horizontal" method="post" action = "/api/v1/comment">
+              <fieldset>
+                <legend class="text-center">make comment</legend>
+        
+        
+                <!-- Email input-->
+                <div class="form-group">
+                  <label class="col-md-3 control-label" for="title">Post id</label>
+                  <div class="col-md-9">
+                    <input required id="id" name="id" type="text" placeholder="Post title" class="form-control">
+                  </div>
+                </div>
+        
+                <!-- Message body -->
+                <div class="form-group">
+                  <label class="col-md-3 control-label" for="Post">Your Comment</label>
+                  <div class="col-md-9">
+                    <textarea required class="form-control" id="Content" name="Content" placeholder="Please enter your thoughts here..." rows="5"></textarea>
+                  </div>
+                </div>
+        
+                <!-- Form actions -->
+                <div class="form-group">
+                  <div class="col-md-12 text-right">
+                    <input type="submit" class="btn btn-primary btn-lg" value="POST" formmethod="POST" ></button>
+                  </div>
+                </div>
+              </fieldset>
+              </form>
+
+
+              <form class="form-horizontal" method="post" action = "/api/v1/like">
+                <fieldset>
+                  <legend class="text-center">make like</legend>
+          
+          
+                  <!-- Email input-->
+                  <div class="form-group">
+                    <label class="col-md-3 control-label" for="title">Post id</label>
+                    <div class="col-md-9">
+                      <input required id="id" name="id" type="text" placeholder="Post title" class="form-control">
+                    </div>
+                  </div>
+          
+
+          
+                  <!-- Form actions -->
+                  <div class="form-group">
+                    <div class="col-md-12 text-right">
+                      <input type="submit" class="btn btn-primary btn-lg" value="POST" formmethod="POST" ></button>
+                    </div>
+                  </div>
+                </fieldset>
+                </form>
+        </div>
+      </div>
+	</div>
+</div>
