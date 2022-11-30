@@ -27,6 +27,7 @@ const makeComment = (req, res) => {
   Posts.findByIdAndUpdate(
     id,
     { $push: { Comments: { Content: Content, id: req.user.id } } },
+    { new: true },
     (err, data) => {
       if (err) console.log(err);
       res.send(data);
@@ -40,6 +41,7 @@ const makeLike = (req, res) => {
   Posts.findByIdAndUpdate(
     id,
     { $push: { Likes: req.user.id } },
+    { new: true },
     (err, data) => {
       if (err) console.log(err);
       res.send(data);

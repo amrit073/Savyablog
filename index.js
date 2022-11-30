@@ -45,15 +45,15 @@ const checkAuthenticated = (req, res, next) => {
 
 app.use(checkAuthenticated);
 
-app.post("/logout", (req, res) => {
-  req.logOut();
-  res.redirect("/login");
+app.get("/logout", checkAuthenticated, (req, res) => {
+  req.session = null;
+  res.send("logged out");
 });
 
 app.use("/api/v1", router);
 app.use("/", homerouter);
 app.get("/dashboard", (req, res) => {
-  res.send(`this is protected, you have accesss ${req.user} `);
+  res.redirect("/");
 });
 
 app.listen(PORT, async () => {
